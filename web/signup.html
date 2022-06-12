@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>Sign Up</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="signup.css" rel="stylesheet" type="text/css" > 
+        
+    </head>
+    <body>
+
+
+        <form class="container" onsubmit="return checkForm(this);" method="POST" action="index.html">
+            <table class="table-control"  >
+                <div class="header">
+                    <h2>Sign Up</h2>
+                </div>
+                <tr>
+                    <td class="tdlabel">Username:</td>
+                    <td class="inputF"><input type="text" name="username" > 
+                        <label id="usernameError" class="error"></label></td>
+                </tr>
+                <tr>
+                    <td class="tdlabel">Email:</td>
+                    <td><input type="email" name="email" id="email">
+                        <label id="emailError" class="error"></label></td>
+                </tr>
+                <tr>
+                    <th>Select your role:</th>
+                </tr>
+                <tr>
+                    <td>Student: </td>
+                    <td> <input type="radio" value="Student" name="role"></td>
+                </tr>
+                <tr>
+                    <td>Staff: </td>
+                    <td><input type="radio" value="Staff" name="role">
+                    <label id="roleError" class="error"></label></td>
+                </tr>
+                <tr>
+                    <th>Select your department</th>
+                </tr>
+                <tr>
+                    <td>CS: </td>
+                    <td> <input type="radio" value="CS" name="department"></td>
+                </tr>
+                <tr>
+                    <td>IS: </td>
+                    <td><input type="radio" value="IS" name="department"></td>
+                </tr>
+                <tr>
+                    <td>IT: </td>
+                    <td><input type="radio" value="IT" name="department"></td>
+                </tr>
+                <tr>
+                    <td>DS: </td>
+                    <td><input type="radio" value="DS" name="department"></td>
+                </tr>
+                <tr>
+                    <td>AI: </td>
+                    <td><input type="radio" value="AI" name="department">
+                    <label id="departmentError" class="error"></label></td>
+                </tr>
+                <tr>
+                    <td><label id="captcha"></label> </td>
+                    <td><input type="text"  id="captchaInput">
+                        <label id="captchaError" ></label></td>                    
+                </tr>
+                <tr>
+                    <td colspan="2"><input type="submit" value="Sign-up"></td>
+                </tr>
+            </table>
+        </form>
+
+<script>
+            var captcha = document.getElementById("captcha");
+            var no = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+            var x = no[Math.floor(Math.random() * no.length)];
+            for (var i = 0; i < 6; i++) {
+                x = x + no[Math.floor(Math.random() * no.length)];
+            }
+            captcha.innerHTML = x;
+            var res = false;
+
+            function checkForm(form) {
+                var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+                var captchaInput = document.getElementById("captchaInput").value;
+                if (form.username.value === '') {
+                    var userName = document.getElementById("usernameError");
+                    userName.innerHTML = "Error: Username cannot be blank";
+                    userName.style.color = "red";
+                    form.username.focus();
+                    return false;
+                } else if (form.email.value === '') {
+                    var emailError = document.getElementById("emailError");
+                    emailError.innerHTML = "Error: Email cannot be blank!";
+                    emailError.style.color = "red";
+                    form.email.focus();
+                    return false;
+                } else if (form.username.value.length < 6) {
+                    var usernameError = document.getElementById("usernameError");
+                    usernameError.innerHTML = "Error: Username must contain at least six characters!";
+                    usernameError.style.color = "red";
+                    form.username.focus();
+                    return false;
+                } else if (form.email.value === form.username.value) {
+                    var usernameError = document.getElementById("usernameError");
+                    usernameError.innerHTML = "Error: Username must be different from Email!";
+                    usernameError.style.color = "red";
+                    form.username.focus();
+                    return false;
+                } else if (!re.test(form.email.value)) {
+                    var emailError = document.getElementById("emailError");
+                    emailError.innerHTML = "Error: Email must contain at least one number (0-9)!";
+                    emailError.style.color = "red";
+                    form.email.focus();
+                    return false;
+                } else if(form.role.value  === ''){
+                    var roleError = document.getElementById("roleError");
+                    roleError.innerHTML = "Error: You have to choose a role";
+                    roleError.style.color = "red";
+                    form.email.focus();
+                    return false;
+                }else if(form.department.value  === ''){
+                    var departmentError = document.getElementById("departmentError");
+                    departmentError.innerHTML = "Error: You have to choose a department";
+                    departmentError.style.color = "red";
+                    form.email.focus();
+                    return false;
+                }else if (captchaInput!==captcha.innerHTML) {
+                    var captchaError = document.getElementById("captchaError");
+                    captchaError.innerHTML = "Wrong captcha";
+                    captchaError.style.color = "red";
+                    return false;
+                }
+                checkEmail(form.email.value, form.username.value, form.role.value, form.department.value);
+                return false;
+
+            }
+            function checkEmail(email, username, role, department) {
+                var c;
+                var xmlhttp = new XMLHttpRequest();
+                var emailError = document.getElementById("emailError");
+                xmlhttp.open("GET", "createuser?email=" + email + "&username=" + username + "&role=" + role + "&department=" + department, true);
+                xmlhttp.send();
+                xmlhttp.onreadystatechange = function () {
+                    if (xmlhttp.readyState === 4 && xmlhttp.status === 200)
+                    {
+                        c = xmlhttp.responseText.toString();
+                        if (c.localeCompare("1") === 0) {
+                            emailError.innerHTML = "This email is already registered";
+                            emailError.style.color = "red";
+                        } else {
+                            alert("Success");
+                            window.location.href = "index.html";
+                        }
+                    }
+
+                };
+            }
+        </script>
+    </body>
+</html>

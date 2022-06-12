@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>Reservation History</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="ReservationHistory.css" rel="stylesheet" type="text/css" >
+    </head>
+    <body>
+
+        <div class="container">
+
+            <div class="header">
+                <h2>Choose Starting date and ending date</h2>
+            </div>
+            <form action="ReservationHistory.jsp" id="form" class="form" method="post">
+                <div class="form-control">
+
+                    <input type="date"  name="StartingDate"/>
+                    <i class="fas fa-check-circle"></i>
+                    <i class="fas fa-exclamation-circle"></i>
+
+                </div>
+                <div class="form-control">
+
+                    <input type="date"  name="EndingDate"/>
+                    <i class="fas fa-check-circle"></i>
+                    <i class="fas fa-exclamation-circle"></i>
+
+                </div>
+
+                <button>View</button>   
+            </form>
+        </div>
+            
+            
+    </body>
+</html>
