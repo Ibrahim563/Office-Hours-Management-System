@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>Office Hours Slots</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="OfficeHoursSlots.css" rel="stylesheet" type="text/css" >
+    </head>
+    <body>
+
+        <div class="container">
+            <div class="header">
+                <h2>View your Office hours </h2>
+            </div>
+
+            <form action="ViewOfficeHour.jsp" id="form" class="form" method="post">
+                <button>View Office Hour</button>   
+            </form>
+            
+
+            <div class="header">
+                <h2>Add your Office hours </h2>
+            </div>
+
+            <form action="CreateOfficeHour" id="form" class="form" method="post">
+
+                <div class="form-control">
+                    <input type="date"  name="date" />
+                    <i class="fas fa-check-circle"></i>
+                    <i class="fas fa-exclamation-circle"></i>
+                </div>
+                <div class="form-control">
+
+                    <input type="number"  name="slotFrom" placeholder="Starting Slot"/>
+                    <i class="fas fa-check-circle"></i>
+                    <i class="fas fa-exclamation-circle"></i>
+
+                </div>
+                <div class="form-control">
+                    <input type="number"  name="slotTo" placeholder="Ending Slot"/>
+                    <i class="fas fa-check-circle"></i>
+                    <i class="fas fa-exclamation-circle"></i>
+                </div>
+
+                <div class="form-control">
+                    <input type="text"  name="location" placeholder="Location"/>
+                    <i class="fas fa-check-circle"></i>
+                    <i class="fas fa-exclamation-circle"></i>
+                </div>
+
+                <button>Add Office Hour</button>   
+            </form>
+
+
+            <div class="header">
+                <h2>Update an existing office hour </h2>
+            </div>
+            <form action="UpdateOfficeHour" id="form2" class="form" method="post">
+
+                <div class="form-control">
+                    <input type="date"  name="date" />
+                    <i class="fas fa-check-circle"></i>
+                    <i class="fas fa-exclamation-circle"></i>
+                </div>
+                <div class="form-control">
+
+                    <input type="number"  name="slotFrom" placeholder="Starting Slot"/>
+                    <i class="fas fa-check-circle"></i>
+                    <i class="fas fa-exclamation-circle"></i>
+
+                </div>
+                <div class="form-control">
+                    <input type="number"  name="slotTo" placeholder="Ending Slot"/>
+                    <i class="fas fa-check-circle"></i>
+                    <i class="fas fa-exclamation-circle"></i>
+                </div>
+
+                <div class="form-control">
+                    <input type="text"  name="location" placeholder="Location"/>
+                    <i class="fas fa-check-circle"></i>
+                    <i class="fas fa-exclamation-circle"></i>
+                </div>
+
+                <button>Update Office Hour</button>   
+            </form>
+            
+            
+            
+             <div class="header">
+                <h2>Delete an existing office hour </h2>
+            </div>
+            <form action="DeleteOfficeHour" id="form2" class="form" method="post">
+
+                <div class="form-control">
+                    <input type="date"  name="date" />
+                    <i class="fas fa-check-circle"></i>
+                    <i class="fas fa-exclamation-circle"></i>
+                </div>
+                <div class="form-control">
+
+                    <input type="number"  name="slotFrom" placeholder="Starting Slot"/>
+                    <i class="fas fa-check-circle"></i>
+                    <i class="fas fa-exclamation-circle"></i>
+
+                </div>
+                <div class="form-control">
+                    <input type="number"  name="slotTo" placeholder="Ending Slot"/>
+                    <i class="fas fa-check-circle"></i>
+                    <i class="fas fa-exclamation-circle"></i>
+                </div>
+
+                <button>Delete Office Hour</button>   
+            </form>
+            
+            
+
+
+        </div>
+
+
+    </body>
+</html>

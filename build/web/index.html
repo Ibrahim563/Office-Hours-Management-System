@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>Login Page</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="login.css" rel="stylesheet" type="text/css" > 
+    </head>
+    <body>
+        <div class="container">
+            <div class="header">
+                <h2>Create Account</h2>
+            </div>
+            <form action="validatelogin"  id="form" class="form" method="post">
+                <div class="form-control">
+                    <label for="email">Email</label>
+                    <input type="email" placeholder="Enter your email" 
+                           id="email" name="email"/>
+                    <i class="fas fa-check-circle"></i>
+                    <i class="fas fa-exclamation-circle"></i>
+                    <small>Error message</small>
+                </div>
+
+                <div class="form-control">
+                    <label for="password">Password</label>
+                    <input type="password" placeholder="Enter your password" 
+                           name="psw" id="password" />
+                    <i class="fas fa-check-circle"></i>
+                    <i class="fas fa-exclamation-circle"></i>
+                    <small>Error message</small>
+                </div>
+                <button>Login</button>
+            </form>
+            <form id="form2" class="form2" action="signup.html" method="post">
+
+                <button type="submit">Sign Up</button>
+            </form>
+        </div>
+
+    </body>
+</html>
+

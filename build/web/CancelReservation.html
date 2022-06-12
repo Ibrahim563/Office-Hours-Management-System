@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>Cancel Reservation</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="OfficeHoursSlots.css" rel="stylesheet" type="text/css" >
+    </head>
+    <body>
+
+        <div class="container">
+
+            <div class="header">
+                <h2>Cancel All Reservations</h2>
+            </div>
+            <form action="CancelAllReservations" id="form" class="form" method="post">
+                <div class="form-control">
+
+                    <input type="date"  name="reservationDate1"/>
+                    <i class="fas fa-check-circle"></i>
+                    <i class="fas fa-exclamation-circle"></i>
+
+                </div>
+
+                <button>Cancel</button>   
+            </form>
+            
+            <div class="header">
+                <h2>Cancel Specific Reservations by Slot Number</h2>
+            </div>
+            <form action="CancelSpecificReservation" id="form2" class="form2" method="post">
+                <div class="form-control">
+
+                    <input type="date"  name="reservationDate2"/>
+                    <i class="fas fa-check-circle"></i>
+                    <i class="fas fa-exclamation-circle"></i>
+                    
+                    <input type="number"  name="slotnumber"  placeholder="Slot Number"/>
+                    <i class="fas fa-check-circle"></i>
+                    <i class="fas fa-exclamation-circle"></i>
+
+                </div>
+
+                <button>Cancel</button>   
+            </form>
+
+
+        </div>
+    </body>
+</html>
